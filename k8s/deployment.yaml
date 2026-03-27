@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cseos-app
+  template:
+    metadata:
+      labels:
+        app: cseos-app
+    spec:
+      containers:
+      - name: springboot-openshift-container
+        image: praneetha0805/cseos:latest
+        ports:
+        - containerPort: 8085
